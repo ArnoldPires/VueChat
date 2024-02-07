@@ -5,11 +5,15 @@
         <VCardTitle>
           <div class="d-flex align-center justify-center">
             <VIcon icon="mdi-chat" />
-            <h3 class="ml-2">Vue Chatapp</h3>
+            <h3 class="ml-2">UPchieve Chat</h3>
           </div>
         </VCardTitle>
         <VCardText class="py-4">
-          <VTextField label="Username" v-model="state.username"></VTextField>
+          <VTextField
+            label="Username"
+            v-model="state.username"
+            :rules="[(v) => !!v || 'Username is required']"
+          ></VTextField>
           <VSelect :items="rooms" label="Room" v-model="state.room"></VSelect>
         </VCardText>
         <VCardActions>
@@ -20,7 +24,7 @@
             variant="outlined"
             type="submit"
           >
-            Join Chatapp
+            Join The Chat
           </VBtn>
         </VCardActions>
       </VCard>
@@ -32,7 +36,14 @@
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const rooms = ["vue installation", "vue guide", "vue api", "vue examples"];
+const rooms = [
+  "Math",
+  "English",
+  "Science",
+  "Social Studies",
+  "College Counseling",
+  "SAT & ACT Prep",
+];
 const state = reactive({
   username: "",
   room: rooms[0],

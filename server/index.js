@@ -13,6 +13,7 @@ import {
 } from "./utils.js";
 
 const app = express();
+app.use(cors()); // Use CORS middleware
 
 const server = createServer(app);
 
