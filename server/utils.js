@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const botName = "Vue Chatapp Admin";
+export const botName = "UPchieve Bot";
 export const users = [];
 
 /**

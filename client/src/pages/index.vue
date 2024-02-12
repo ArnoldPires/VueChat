@@ -1,35 +1,38 @@
 <template>
-  <VContainer>
-    <VForm @submit.prevent="onSubmit">
-      <VCard max-width="600" class="mx-auto pa-5">
-        <VCardTitle>
-          <div class="d-flex align-center justify-center">
-            <VIcon icon="mdi-chat" />
-            <h3 class="ml-2">UPchieve Chat</h3>
-          </div>
-        </VCardTitle>
-        <VCardText class="py-4">
-          <VTextField
-            label="Username"
+  <div class="app-container">
+    <form @submit.prevent="onSubmit" class="form-container">
+      <div class="card">
+        <div class="card-header">
+          <i class="mdi mdi-chat"></i>
+          <h3>UPchieve Chat</h3>
+        </div>
+        <div class="card-body">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
             v-model="state.username"
-            :rules="[(v) => !!v || 'Username is required']"
-          ></VTextField>
-          <VSelect :items="rooms" label="Room" v-model="state.room"></VSelect>
-        </VCardText>
-        <VCardActions>
-          <VBtn
-            block
-            color="primary"
-            :disabled="!state.username || !state.room"
-            variant="outlined"
-            type="submit"
-          >
+            required
+            placeholder="Enter your username"
+          />
+
+          <div class="select-wrapper">
+            <label for="room">Join a Room</label>
+            <select id="room" v-model="state.room">
+              <option v-for="room in rooms" :key="room" :value="room">
+                {{ room }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" :disabled="!state.username || !state.room">
             Join The Chat
-          </VBtn>
-        </VCardActions>
-      </VCard>
-    </VForm>
-  </VContainer>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -53,3 +56,99 @@ const onSubmit = () => {
   router.push(`/chat?username=${state.username}&room=${state.room}`);
 };
 </script>
+
+<style scoped>
+.app-container {
+  background-color: #15cda1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+h3,
+i {
+  color: #15cda1;
+}
+
+.form-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper select {
+  -webkit-appearance: none; /* Remove default style for Chrome, Safari */
+  -moz-appearance: none; /* Remove default style for Firefox */
+  appearance: none; /* Remove default style for modern browsers */
+  width: 100%; /* Make select fill its container */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  /* Add padding to make space for the custom arrow */
+  padding-right: 30px;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-image: url("../assets/dropdown-arrow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none; /* Prevent the pseudo-element from capturing clicks */
+}
+
+.card-header,
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card-body {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #15cda1;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+</style>
