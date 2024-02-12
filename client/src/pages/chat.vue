@@ -21,7 +21,7 @@
       <VCardText class="py-6 px-0">
         <div class="d-flex">
           <!-- Sidebar -->
-          <div class="bg-grey-lighten-3 py-4 px-6">
+          <div class="bg-grey-lighten-3 py-4 px-6" style="border-radius: 15px">
             <div class="mb-4">
               <div
                 class="d-flex align-center mb-2 px-3 py-2 rounded-md bg-white"
@@ -72,11 +72,11 @@
                   <div class="text-xs text-primary font-semibold">
                     {{ chat.username }}
                   </div>
-                  <div class="text-xs">{{ chat.time }}</div>
                 </div>
                 <div class="mt-1 text-body-1">
                   {{ chat.text }}
                 </div>
+                <div class="text-xs">{{ chat.time }}</div>
               </div>
             </div>
           </div>
@@ -86,6 +86,7 @@
       <VCardActions class="pt-6">
         <form class="w-100" @submit.prevent="onSubmit">
           <VTextField
+            label="Type a message..."
             hide-details
             variant="solo"
             elevation="0"
@@ -163,4 +164,21 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-container {
+  background-color: #15cda1;
+}
+::v-deep .v-btn {
+  background-color: #15cda1 !important;
+  border-color: #15cda1 !important;
+}
+bg-grey-lighten-3 py-4 px-6 {
+  border-radius: 15px !important;
+}
+.w-50 {
+  border-radius: 15px;
+}
+.align-center {
+  color: #15cda1;
+}
+</style>
