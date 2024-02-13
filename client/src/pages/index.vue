@@ -1,4 +1,9 @@
 <template>
+  <nav class="navigation">
+    <router-link to="/sign-in" class="nav-link">Sign In</router-link>
+    <router-link to="/register" class="nav-link">Register</router-link>
+    <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
+  </nav>
   <div class="app-container">
     <form @submit.prevent="onSubmit" class="form-container">
       <div class="card">
@@ -35,10 +40,31 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { reactive } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 const router = useRouter();
+const isLoggedIn = ref(false);
+
+// Assuming Firebase is initialized elsewhere, like in main.js
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  isLoggedIn.value = !!user;
+});
+
+const handleSignOut = async () => {
+  try {
+    await signOut(auth);
+    router.push("/sign-in"); // Or wherever you want to redirect after sign-out
+  } catch (error) {
+    console.error("Error signing out: ", error);
+  }
+};
+
 const rooms = [
   "Math",
   "English",
@@ -58,6 +84,22 @@ const onSubmit = () => {
 </script>
 
 <style scoped>
+.navigation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #107c41;
+  border-radius: 5px;
+}
+.nav-link:hover {
+  background-color: #0a6844;
+}
 .app-container {
   background-color: #15cda1;
   display: flex;
