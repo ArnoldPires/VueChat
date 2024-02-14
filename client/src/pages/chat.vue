@@ -1,4 +1,10 @@
 <template>
+  <h1>UPchieve Chat</h1>
+  <nav class="navigation">
+    <router-link to="/sign-in" class="nav-link">Sign In</router-link>
+    <router-link to="/register" class="nav-link">Register</router-link>
+    <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
+  </nav>
   <VContainer>
     <VCard class="mx-auto pa-5">
       <VCardTitle class="pb-5">
@@ -165,6 +171,16 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+h1, nav a {
+  text-align: center;
+  color: #15cda1;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
 .v-container {
   background-color: #15cda1;
 }

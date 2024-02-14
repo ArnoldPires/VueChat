@@ -1,4 +1,5 @@
 <template>
+  <h1>UPchieve Chat</h1>
   <nav class="navigation">
     <router-link to="/sign-in" class="nav-link">Sign In</router-link>
     <router-link to="/register" class="nav-link">Register</router-link>
@@ -84,22 +85,21 @@ const onSubmit = () => {
 </script>
 
 <style scoped>
+h1, nav a {
+  text-align: center;
+  color: #15cda1;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
 .navigation {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.nav-link {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  background-color: #107c41;
-  border-radius: 5px;
-}
-.nav-link:hover {
-  background-color: #0a6844;
-}
 .app-container {
   background-color: #15cda1;
   display: flex;
@@ -181,12 +181,7 @@ select {
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #15cda1;
-  color: white;
+  color: #15cda1;
   cursor: pointer;
 }
 

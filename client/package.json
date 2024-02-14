@@ -14,7 +14,8 @@
     "roboto-fontface": "*",
     "socket.io-client": "^4.7.4",
     "vue": "^3.3.0",
-    "vuetify": "^3.0.0"
+    "vuetify": "^3.0.0",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@babel/types": "^7.23.0",
@@ -38,5 +39,10 @@
     "vite-plugin-vuetify": "^2.0.0",
     "vue-router": "^4.2.0",
     "vue-tsc": "^1.8.0"
-  }
+  },
+  "description": "This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.",
+  "main": ".eslintrc.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
