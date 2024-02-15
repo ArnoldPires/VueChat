@@ -50,7 +50,6 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 const router = useRouter();
 const isLoggedIn = ref(false);
 
-// Assuming Firebase is initialized elsewhere, like in main.js
 const auth = getAuth();
 
 onAuthStateChanged(auth, (user) => {
@@ -60,7 +59,7 @@ onAuthStateChanged(auth, (user) => {
 const handleSignOut = async () => {
   try {
     await signOut(auth);
-    router.push("/sign-in"); // Or wherever you want to redirect after sign-out
+    router.push("/sign-in");
   } catch (error) {
     console.error("Error signing out: ", error);
   }
@@ -85,7 +84,8 @@ const onSubmit = () => {
 </script>
 
 <style scoped>
-h1, nav a {
+h1,
+nav a {
   text-align: center;
   color: #15cda1;
   text-decoration: none;
@@ -127,16 +127,15 @@ i {
 }
 
 .select-wrapper select {
-  -webkit-appearance: none; /* Remove default style for Chrome, Safari */
-  -moz-appearance: none; /* Remove default style for Firefox */
-  appearance: none; /* Remove default style for modern browsers */
-  width: 100%; /* Make select fill its container */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: white;
-  /* Add padding to make space for the custom arrow */
   padding-right: 30px;
 }
 
@@ -151,7 +150,7 @@ i {
   background-image: url("../assets/dropdown-arrow.png");
   background-size: contain;
   background-repeat: no-repeat;
-  pointer-events: none; /* Prevent the pseudo-element from capturing clicks */
+  pointer-events: none;
 }
 
 .card-header,

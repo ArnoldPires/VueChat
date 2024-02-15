@@ -55,13 +55,11 @@ const isLoggedIn = ref(false);
 
 // Updated method name to signIn
 const signIn = async () => {
-  // It's good practice to check for empty fields, but this basic example assumes validation is handled elsewhere or by HTML5
   try {
     const auth = getAuth();
     await signInWithEmailAndPassword(auth, email.value, password.value);
     console.log("Successfully signed in");
-    // Redirect to the index.vue page (or any other target page after sign-in)
-    router.push("/"); // Adjust the target path as needed
+    router.push("/");
   } catch (error) {
     console.error("Sign-in error:", error);
     alert(error.message); // Display an error message
@@ -70,7 +68,8 @@ const signIn = async () => {
 </script>
 
 <style scoped>
-h1, nav a {
+h1,
+nav a {
   text-align: center;
   color: #15cda1;
   text-decoration: none;
@@ -85,12 +84,12 @@ nav {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #15cda1; /* Sets the background color of the entire sign-in page */
+  background-color: #15cda1;
 }
 
 .form-container {
   width: 100%;
-  max-width: 400px; /* Adjust the max-width to fit your design preference */
+  max-width: 400px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -98,18 +97,18 @@ nav {
 }
 
 input[type="text"],
-input[type="email"], /* Explicitly include email input type */
+input[type="email"],
 input[type="password"] {
   font-size: 16px;
   padding: 10px;
-  margin-bottom: 20px; /* Space between form fields */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #333;
 }
 
 input[type="text"]::placeholder,
-input[type="email"]::placeholder, /* Ensure placeholders for email inputs are styled */
+input[type="email"]::placeholder,
 input[type="password"]::placeholder {
   color: #999;
 }
@@ -120,8 +119,8 @@ input[type="password"]::placeholder {
 
 .card-header h3 {
   text-align: center;
-  color: #333; /* Dark text for contrast */
-  margin-bottom: 20px; /* Space between title and form inputs */
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .card-body {
@@ -139,7 +138,7 @@ input[type="text"],
 input[type="password"] {
   font-size: 16px;
   padding: 10px;
-  margin-bottom: 20px; /* Space between form fields */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #333;
@@ -157,7 +156,7 @@ input[type="password"]::placeholder {
 button {
   font-size: 16px;
   color: #fff;
-  background-color: #107c41; /* A shade of green for the button */
+  background-color: #107c41;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -166,7 +165,7 @@ button {
 }
 
 button:hover {
-  background-color: #0a6844; /* Darker shade on hover */
+  background-color: #0a6844;
 }
 
 button:disabled {

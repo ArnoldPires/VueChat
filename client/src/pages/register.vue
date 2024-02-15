@@ -85,8 +85,8 @@ const register = () => {
 </script>
 
 <style scoped>
-
-h1, nav a {
+h1,
+nav a {
   text-align: center;
   color: #15cda1;
   text-decoration: none;
@@ -101,12 +101,12 @@ nav {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #15cda1; /* Background color for consistency */
+  background-color: #15cda1;
 }
 
 .form-container {
   width: 100%;
-  max-width: 400px; /* Form width consistent with the sign-in page */
+  max-width: 400px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -115,8 +115,8 @@ nav {
 
 .card-header h3 {
   text-align: center;
-  color: #333; /* Text color for clarity */
-  margin-bottom: 20px; /* Spacing between title and form inputs */
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .card-body {
@@ -130,20 +130,19 @@ label {
   margin-bottom: 5px;
 }
 
-/* Updated to include input[type="email"] */
 input[type="text"],
-input[type="email"], /* Include email input */
+input[type="email"],
 input[type="password"] {
   font-size: 16px;
   padding: 10px;
-  margin-bottom: 20px; /* Spacing between form fields */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #333;
 }
 
 input[type="text"]::placeholder,
-input[type="email"]::placeholder, /* Include email input placeholder */
+input[type="email"]::placeholder,
 input[type="password"]::placeholder {
   color: #999;
 }
@@ -155,7 +154,7 @@ input[type="password"]::placeholder {
 button {
   font-size: 16px;
   color: #fff;
-  background-color: #107c41; /* Button color for visual coherence */
+  background-color: #107c41;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -164,7 +163,7 @@ button {
 }
 
 button:hover {
-  background-color: #0a6844; /* Darker shade on hover */
+  background-color: #0a6844;
 }
 
 button:disabled {

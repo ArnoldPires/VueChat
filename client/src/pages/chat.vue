@@ -144,8 +144,8 @@ const onSubmit = async () => {
 };
 
 const leaveRoom = () => {
-  socket.value?.emit("leaveRoom"); // Notify the server
-  router.push("/"); // Redirect to the homepage or another appropriate view
+  socket.value?.emit("leaveRoom");
+  router.push("/");
 };
 
 onMounted(() => {
@@ -171,7 +171,8 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-h1, nav a {
+h1,
+nav a {
   text-align: center;
   color: #15cda1;
   text-decoration: none;

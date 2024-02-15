@@ -25,7 +25,6 @@ const routes = [
     name: "chat",
     component: chat,
   },
-  // Optionally, redirect unknown paths to home. Remove or adjust as needed.
   {
     path: "/:catchAll(.*)",
     redirect: "/",
