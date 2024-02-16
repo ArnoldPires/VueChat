@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../pages/index.vue";
-import register from "../pages/register.vue";
 import signIn from "../pages/signIn.vue";
+import register from "../pages/register.vue";
+import dashboard from "../pages/dashboard.vue";
 import chat from "../pages/chat.vue";
 
 const routes = [
   {
     path: "/",
-    name: "index",
-    component: Home,
+    name: "signIn",
+    component: signIn,
   },
   {
     path: "/register",
@@ -16,9 +16,9 @@ const routes = [
     component: register,
   },
   {
-    path: "/sign-in",
-    name: "rignIn",
-    component: signIn,
+    path: "/dashboard",
+    name: "dashboard",
+    component: dashboard,
   },
   {
     path: "/chat",
