@@ -51,6 +51,10 @@
         <div class="card-footer">
           <button type="submit">Register</button>
         </div>
+        <p>
+          Already have an account? Sign In
+          <router-link to="/sign-in" class="nav-link"> here.</router-link>
+        </p>
       </div>
     </form>
   </div>

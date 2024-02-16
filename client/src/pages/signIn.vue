@@ -1,8 +1,6 @@
 <template>
   <h1>UPchieve Chat</h1>
   <nav class="navigation">
-    <router-link to="/sign-in" class="nav-link">Sign In</router-link>
-    <router-link to="/register" class="nav-link">Register</router-link>
     <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
   </nav>
   <div class="app-container">
@@ -35,6 +33,16 @@
         <div class="card-footer">
           <button type="submit">Sign In</button>
         </div>
+        <div class="register">
+          <p>
+            Don't have an account? Register<router-link
+              to="/register"
+              class="nav-link"
+            >
+              here.</router-link
+            >
+          </p>
+        </div>
       </div>
     </form>
   </div>
@@ -62,7 +70,7 @@ const signIn = async () => {
     router.push("/");
   } catch (error) {
     console.error("Sign-in error:", error);
-    alert(error.message); // Display an error message
+    alert(error.message);
   }
 };
 </script>
@@ -119,7 +127,7 @@ input[type="password"]::placeholder {
 
 .card-header h3 {
   text-align: center;
-  color: #333;
+  color: #15cda1;
   margin-bottom: 20px;
 }
 
@@ -171,5 +179,14 @@ button:hover {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.register {
+  padding-top: 1rem;
+  text-align: center;
+}
+.register p a {
+  text-decoration: none;
+  color: #15cda1;
 }
 </style>
